@@ -1,7 +1,0 @@
-channels:
-  jcmorin-ana-org: aws
-
-build_parameters:
-  - "--suppress-variables"
-  #- "--skip-existing"
-  - "--error-overlinking"
