@@ -20,7 +20,7 @@ requirements:
     - {{ compiler('c') }}
     - ninja-base
   host:
-    - aws-c-common 0.8.5
+    - aws-c-common 0.11.1
 
 test:
   commands:
