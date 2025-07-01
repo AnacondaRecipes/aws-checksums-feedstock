@@ -1,5 +1,5 @@
 {% set name = "aws-checksums" %}
-{% set version = "0.2.3" %}
+{% set version = "0.2.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,16 @@ package:
 
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c688f311db8a1b70bb6d22f6e8f2817b39e1419546e339cf753d61340969eeb4
+  sha256: 178e8398d98111f29150f7813a70c20ad97ab30be0de02525440355fe84ccb1d
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage("aws-checksums", max_pin="x.x.x") }}
 
 requirements:
   build:
-    - cmake !=3.19.0,!=3.19.1
+    - cmake >=3.9
     - {{ compiler('c') }}
     - ninja-base
   host:
@@ -40,7 +40,5 @@ about:
   doc_url: https://github.com/awslabs/aws-checksums
 
 extra:
-  skip-lints:
-    - missing_tests
   recipe-maintainers:
     - xhochy
