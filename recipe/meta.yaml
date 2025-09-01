@@ -10,24 +10,25 @@ source:
   sha256: 178e8398d98111f29150f7813a70c20ad97ab30be0de02525440355fe84ccb1d
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("aws-checksums", max_pin="x.x.x") }}
 
 requirements:
   build:
-    - cmake >=3.9
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
+    - cmake >=3.9
     - ninja-base
   host:
-    - aws-c-common 0.12.3
+    - aws-c-common 0.12.4
 
 test:
   commands:
     - test -f $PREFIX/lib/libaws-checksums${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/include/aws/checksums/exports.h  # [unix]
-    - if not exist %PREFIX%\\Library\\bin\\aws-checksums.dll exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\include\\aws\\checksums\\exports.h exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\aws-checksums.dll exit 1  # [win]
+    - if not exist %LIBRARY_INC%\aws\checksums\exports.h exit 1  # [win]
 
 about:
   home: https://github.com/awslabs/aws-checksums
