@@ -1,5 +1,5 @@
 {% set name = "aws-checksums" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 6c058812f5b537ce58eac1e529f441ff387a652ea62cbe9b844f9188339221b1
+  sha256: b24d4896e8406ddff8080037936c86d539929369918265694bedcb887cbe602b
 
 build:
   number: 0
@@ -21,7 +21,7 @@ requirements:
     - cmake >=3.9
     - ninja-base
   host:
-    - aws-c-common 1.0.1
+    - aws-c-common 1.0.3
 
 test:
   commands:
